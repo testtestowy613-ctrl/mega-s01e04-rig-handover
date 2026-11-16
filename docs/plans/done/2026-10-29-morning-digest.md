@@ -1,8 +1,9 @@
----
+﻿---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-16
 ---
 
 # Morning digest
@@ -20,7 +21,7 @@ error, first and last time. One JSON object per line (`at`, `job`, `status`: `ok
 `owner`, optional `error`).
 
 - A line that doesn't parse is counted, never thrown. The night still renders.
-- `owner` can be `null`. Keep the row; show the owner as `—`.
+- `owner` can be `null`. Keep the row; show the owner as `â€”`.
 - Lives in `src/digest/`. Commit `src/digest/types.ts` first (the `DigestRow` type and the
   `readNight(runsDir, night)` signature), so every part of section 2 can start against it.
 
@@ -77,3 +78,15 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Run log reader: src/digest/types.ts + readNight | — | opencode · nask-glm-5-2 · medium | 2026-11-16 |
+| 2 | Digest page: GET /digest/:night | #1 | opencode · nask-glm-5-2 · medium | 2026-11-16 |
+| 3 | Digest JSON: GET /api/digest/:night | #1 | opencode · nask-glm-5-2 · medium | 2026-11-16 |
+| 4 | Board link: nights link to their digest | #1, #2 | opencode · nask-glm-5-2 · medium | 2026-11-16 |
+| 5 | Route tests for digest page and JSON | #2, #3 | opencode · nask-glm-5-2 (nask-dev-tester) · medium | 2026-11-16 |
+| 6 | Preview for review: public HTML copy of /digest/2026-10-28 | #2 | opencode · nask-glm-5-2 · medium | 2026-11-16 |
+| 7 | Clean up: marker off the preview, plan to docs/plans/done/ | #6 | opencode · nask-glm-5-2 · medium | 2026-11-16 |
